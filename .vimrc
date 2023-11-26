@@ -1,3 +1,5 @@
+
+""" Map leader to space ---------------------
 let mapleader=" "
 
 " Show a few lines of context around the cursor. Note that this makes the
@@ -14,6 +16,10 @@ set argtextobj
 set easymotion
 set ideaJoin
 set relativenumber
+
+set ideastatusicon=gray
+
+" --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
 
 " Highlight copied text
 Plug 'machakann/vim-highlightedyank'
