@@ -1,0 +1,103 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+$directory\
+$git_branch\
+$git_status\
+$all\
+$line_break\
+$character"""
+
+
+add_newline = true
+
+[username]
+disabled = true
+
+[cmd_duration]
+format = " \ue0bd [took $duration]($style dimmed) "
+style = "yellow"
+min_time = 2_000
+disabled = false
+
+[directory]
+disabled = false
+read_only = " 󰌾"
+truncation_length = 2
+home_symbol = "\ueb06 ~"
+truncate_to_repo = true
+truncation_symbol = "\ueb06 \\...\\"
+format = "[$path]($style)[$lock_symbol]($lock_style) "
+
+
+[git_branch]
+format = "\ue0bd [$symbol$branch]($style) "
+symbol = " "
+style = "bold yellow"
+
+[git_commit]
+commit_hash_length = 8
+style = "bold white"
+
+[git_state]
+format = '[\($state( $progress_current of $progress_total)\)]($style) '
+
+[git_status]
+conflicted = " \ueb3A"
+ahead = " \ueac3 ~${count}"
+behind = " \ueac2 ~${count}"
+diverged = " \ueac3 ~${ahead_count} \ueac2 ~${behind_count}"
+untracked = " \uf196 ~${count}"
+stashed = " \ueb4b "
+modified = " \ueadd ~${count}"
+staged = " \uf044 ~${count}"
+deleted = " \ueabf ~${count}"
+up_to_date = " \ueb8a"
+# Can add  [\ueba1](fg:#B388FF) \ueb8a
+format = "\ue0bd[$all_status$ahead_behind](#FFEB3B) "
+
+[docker_context]
+symbol = " "
+
+[dart]
+style = "fg:#06A4CE"
+symbol = "\ue64c "
+format = "\ue0bd [$symbol$version]($style) "
+
+[php]
+style = "fg:#256C9D"
+symbol = "\uE73d "
+format = "\ue0bd [$symbol$version]($style) "
+
+[nodejs]
+symbol = " "
+format = "\ue0bd [$symbol$version]($style) "
+
+[golang]
+symbol = " "
+
+[hostname]
+ssh_symbol = " "
+
+[java]
+symbol = " "
+
+[lua]
+symbol = " "
+
+[memory_usage]
+symbol = "󰍛 "
+
+
+[package]
+symbol = "󰏗 "
+disabled = true
+
+[python]
+symbol = " "
+
+[ruby]
+symbol = " "
+
+[rust]
+symbol = " "
