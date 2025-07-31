@@ -1,0 +1,3 @@
+alias ls='ls --color=auto'
+alias ll='eza -l --icons=auto --git-repos-no-status --octal-permissions --no-permissions'
+alias grep='grep --color=auto'
