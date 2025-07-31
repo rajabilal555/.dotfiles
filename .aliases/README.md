@@ -1,3 +1,5 @@
+### Note: For Windows
+
 Adding this folder to the `Path` Environment Variable allows to easily run the scripts from the command line.
 
 Basically put all the alias/shortcuts in this folder and add the folder to the `Path` Environment Variable.
