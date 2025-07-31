@@ -105,13 +105,13 @@ setopt hist_ignore_dups
 setopt hist_save_no_dups
 setopt hist_find_no_dups
 # Directory.
-setopt AUTO_CD
-setopt AUTO_PUSHD
-setopt PUSHD_IGNORE_DUPS
-setopt PUSHD_MINUS
+#setopt AUTO_CD
+#setopt AUTO_PUSHD
+#setopt PUSHD_IGNORE_DUPS
+#setopt PUSHD_MINUS
 # Prompting.
-setopt PROMPT_CR
-setopt PROMPT_SP
+#setopt PROMPT_CR
+#setopt PROMPT_SP
 
 # === SETUP ZINIT ===
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
