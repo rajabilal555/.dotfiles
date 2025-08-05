@@ -158,4 +158,6 @@ export PATH="/home/tekki/fvm/default/bin:$PATH"
 ## Completion scripts setup. Remove the following line to uninstall
 [[ -f /home/tekki/.dart-cli-completion/zsh-config.zsh ]] && . /home/tekki/.dart-cli-completion/zsh-config.zsh || true
 ## [/Completion]
-eval "$(zellij setup --generate-auto-start zsh)"
+#
+
+[ $TERM = "alacritty" ] && eval "$(zellij setup --generate-auto-start zsh)"
