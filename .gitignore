@@ -1,0 +1,16 @@
+# Machine-local state
+fish/.config/fish/fish_variables
+
+# Noctalia v5: runtime/GUI state — not dotfile-managed
+# Declarative config is only ~/.config/noctalia/*.toml
+noctalia/.config/noctalia/plugins/
+noctalia/.config/noctalia/*.json
+
+# Editor / OS junk
+*~
+*.swp
+.DS_Store
+
+# Backup files
+*.bak
+*.bak.*
