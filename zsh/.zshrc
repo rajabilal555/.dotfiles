@@ -43,6 +43,14 @@ zinit snippet OMZL::git.zsh
 zinit snippet OMZP::git
 zinit snippet OMZP::sudo
 zinit snippet OMZP::command-not-found
+zinit snippet OMZP::npm
+zinit snippet OMZP::yarn
+zinit snippet OMZP::composer
+zinit snippet OMZP::laravel
+zinit snippet OMZP::flutter
+zinit snippet OMZP::extract
+zinit snippet OMZP::copyfile
+zinit snippet OMZP::web-search
 
 autoload -Uz compinit && compinit
 zinit cdreplay -q
@@ -87,6 +95,16 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 # Aliases
 alias ls='ls --color=auto'
 alias c='clear'
+
+# pnpm (no official OMZ plugin)
+alias pn=pnpm
+alias pni='pnpm install'
+alias pna='pnpm add'
+alias pnad='pnpm add -D'
+alias pnr='pnpm run'
+alias pnx='pnpm dlx'
+alias pnu='pnpm update'
+alias pnrm='pnpm remove'
 
 # Shell integrations
 command -v fzf >/dev/null && source <(fzf --zsh)
