@@ -14,6 +14,7 @@ Repo: https://github.com/rajabilal555/.dotfiles
 | alacritty  | `~/.config/alacritty`     |
 | zellij     | `~/.config/zellij`        |
 | fish       | `~/.config/fish`          |
+| zsh        | `~/.zshrc`                |
 
 Other packages in this repo (background, windows, etc.) can be stowed separately when needed.
 
@@ -21,13 +22,19 @@ Other packages in this repo (background, windows, etc.) can be stowed separately
 
 ```bash
 cd ~/Personal/.dotfiles   # or wherever you clone this repo
-stow -t ~ mango foot noctalia alacritty zellij fish
+stow -t ~ mango foot noctalia alacritty zellij fish zsh
 ```
 
 If configs already exist as real files (not symlinks), adopt them:
 
 ```bash
-stow -t ~ --adopt mango foot noctalia alacritty zellij fish
+stow -t ~ --adopt mango foot noctalia alacritty zellij fish zsh
+```
+
+Make zsh your login shell (optional):
+
+```bash
+chsh -s "$(which zsh)"
 ```
 
 ## Daily workflow
@@ -47,7 +54,7 @@ git push
 ```bash
 cd ~/Personal/.dotfiles
 git pull
-stow -t ~ -R mango foot noctalia alacritty zellij fish
+stow -t ~ -R mango foot noctalia alacritty zellij fish zsh
 ```
 
 `-R` restows (unstows then stows again), useful after adding/removing files in a package.

@@ -1,1 +1,1 @@
-set -gx PATH /home/bilal/.local/share/lerd/bin $PATH
+fish_add_path $HOME/.local/share/lerd/bin
