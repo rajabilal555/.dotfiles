@@ -15,20 +15,23 @@ Repo: https://github.com/rajabilal555/.dotfiles
 | zellij     | `~/.config/zellij`        |
 | fish       | `~/.config/fish`          |
 | zsh        | `~/.zshrc`                |
+| starship   | `~/.config/starship.toml` |
 
 Other packages in this repo (background, windows, etc.) can be stowed separately when needed.
+
+Zsh stack: **Zinit** (plugins) + **Starship** (prompt). Install Starship on the machine (`sudo dnf install starship` or https://starship.rs).
 
 ## First-time setup
 
 ```bash
 cd ~/Personal/.dotfiles   # or wherever you clone this repo
-stow -t ~ mango foot noctalia alacritty zellij fish zsh
+stow -t ~ mango foot noctalia alacritty zellij fish zsh starship
 ```
 
 If configs already exist as real files (not symlinks), adopt them:
 
 ```bash
-stow -t ~ --adopt mango foot noctalia alacritty zellij fish zsh
+stow -t ~ --adopt mango foot noctalia alacritty zellij fish zsh starship
 ```
 
 Make zsh your login shell (optional):
@@ -54,7 +57,7 @@ git push
 ```bash
 cd ~/Personal/.dotfiles
 git pull
-stow -t ~ -R mango foot noctalia alacritty zellij fish zsh
+stow -t ~ -R mango foot noctalia alacritty zellij fish zsh starship
 ```
 
 `-R` restows (unstows then stows again), useful after adding/removing files in a package.
