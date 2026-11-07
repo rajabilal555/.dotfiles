@@ -9,6 +9,7 @@ path=(
   "$HOME/fvm/default/bin"
   "$HOME/fvm/bin"
   "$HOME/.pub-cache/bin"
+  "$HOME/.config/composer/vendor/bin"
   $path
 )
 
@@ -24,6 +25,11 @@ path=(
 
 [[ -f "$HOME/.cargo/env" ]] && source "$HOME/.cargo/env"
 
+# Completion cache (lets OMZ composer snippet skip repeated `composer global config`)
+mkdir -p "${ZDOTDIR:-$HOME}/.zcompcache"
+zstyle ':completion:*' use-cache yes
+zstyle ':completion:*' cache-path "${ZDOTDIR:-$HOME}/.zcompcache"
+
 # Zinit
 ZINIT_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/zinit/zinit.git"
 if [[ ! -d $ZINIT_HOME/.git ]]; then
@@ -32,25 +38,35 @@ if [[ ! -d $ZINIT_HOME/.git ]]; then
 fi
 source "$ZINIT_HOME/zinit.zsh"
 
-# Fish-like plugins + fzf-tab (from zensh)
+# Needed at first prompt
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
 
-# Useful Oh My Zsh bits without full OMZ
 zinit snippet OMZL::git.zsh
 zinit snippet OMZP::git
 zinit snippet OMZP::sudo
 zinit snippet OMZP::command-not-found
-zinit snippet OMZP::npm
-zinit snippet OMZP::yarn
+
+# Heavy / rarely-needed OMZ snippets: load after first prompt (zinit turbo)
+zinit wait lucid for \
+  OMZP::npm \
+  OMZP::laravel \
+  OMZP::flutter \
+  OMZP::extract \
+  OMZP::copyfile \
+  OMZP::web-search
+
+# Composer aliases only after prompt; keep `c` as clear (plugin sets c=composer)
+zinit ice wait lucid atload'alias c=clear'
 zinit snippet OMZP::composer
-zinit snippet OMZP::laravel
-zinit snippet OMZP::flutter
-zinit snippet OMZP::extract
-zinit snippet OMZP::copyfile
-zinit snippet OMZP::web-search
+
+# Yarn plugin shells out at load; only pull it if yarn exists (we use pnpm day-to-day)
+if (( $+commands[yarn] )); then
+  zinit ice wait lucid
+  zinit snippet OMZP::yarn
+fi
 
 autoload -Uz compinit && compinit
 zinit cdreplay -q
